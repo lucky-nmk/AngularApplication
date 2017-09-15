@@ -1,0 +1,30 @@
+<app-employee-count [all]="getTotalEmployeesCount()" 
+[male]="getTotalMaleEmployeesCount()"
+[female]="getTotalFemaleEmployeesCount()">
+</app-employee-count>
+<br/>
+
+<table>
+  <td>
+    <tr>
+      <th>Code </th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Salary</th>
+     
+    </tr>
+    <tbody>
+      <tr *ngFor= "let employee of employees;trackBy:trackByEmpcode; let i=index"> 
+        <td>{{employee.code }}</td>
+        <td>{{employee.name }}</td>
+        <td>{{employee.gender}}</td>
+        <td>{{employee.salary | currency }}</td>
+      
+       </tr> 
+       <tr *ngIf = "!employees || employees.length == 0">
+         <td colspan="2"> No employees to display</td>
+       </tr>
+    </tbody>
+</table>
+<br/>
+
